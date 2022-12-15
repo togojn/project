@@ -1,0 +1,18 @@
+{% extends 'app/top.html' %}
+
+{% block content %}
+<center>
+<div class="card" style="width: 800px;">
+    <h2 class="card-header">拠点一覧</h2>
+        <div class="card-body">
+        <ul>
+            {% for base in base_list %}
+                <h3><a href="{% url 'app:calendar' base.pk %}">{{ base.name }}</h3></p>
+            {% empty %}
+                <li>拠点登録がありません</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+</center>
+{% endblock %}

@@ -1,0 +1,9 @@
+a {
+    width: 960px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+nav > a {
+    margin-right: 10px;
+}

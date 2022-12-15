@@ -1,0 +1,10 @@
+{% extends 'app/top.html' %}
+
+{% block content %}
+    <h1>{{ seatno }}</h1>
+    <p>{{ view.kwargs.year }}年{{ view.kwargs.month }}月{{ view.kwargs.day }}日 の予約削除</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">削除</button>
+    </form>
+{% endblock %}

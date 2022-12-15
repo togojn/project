@@ -1,0 +1,45 @@
+{% extends 'app/top.html' %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-header">{{ base.name }} 座席一覧</h2>
+    <p>{{ start_day|date:"Y/n/j" }} - {{ end_day|date:"Y/n/j" }}</p>
+    <table class="table table-bordered text-center" style="table-layout: fixed;width: 100%" border="1">
+        <tr>
+            <td><a href="{% url 'app:calendar' base.pk before.year before.month before.day %}">前週</a></td>
+            {% for day in days %}
+                {% if day in public_holidays %}
+                    <th style="background-color: lightyellow">{{ day | date:"d(D)" }}</th>
+                {% elif day.weekday == 5 %}
+                    <th style="color: blue; background-color: rgb(215, 247, 215)">{{ day | date:"d(D)" }}</th>
+                {% elif day.weekday == 6 %}
+                    <th style="color: red; background-color: rgb(215, 247, 215)">{{ day | date:"d(D)" }}</th>
+                {% else %}
+                    <th style="background-color: rgb(215, 247, 215)">{{ day | date:"d(D)" }}</th>
+                {% endif %}
+            {% endfor %}
+            <td><a href="{% url 'app:calendar' base.pk next.year next.month next.day %}">次週</a></td>
+        </tr>
+
+        {% for seat, schedule in calendar.items %}
+            <tr style="font-size:12px">
+                <td>
+                    {{ seat }}
+                    </td>
+                        {% for dt, schedule in schedule.items %}
+                            <td>
+                                {% if schedule == "none" %}
+                                    <a href="{% url 'app:booking' base.pk seat.pk dt.year dt.month dt.day %}">○</a>
+                                {% else %}
+                                    <a href="{% url 'app:scheduledelete' sche.pop %}">{{ schedule }}</a>
+                                {% endif %}
+                            </td>
+                        {% endfor %}
+                    <td>
+                    {{ seat }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

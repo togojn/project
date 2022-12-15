@@ -1,0 +1,17 @@
+{% extends 'app/top.html' %}
+
+{% block content %}
+    <h1>{{ base.name }}座席一覧</h1>
+    <body>
+        {{ request }}
+        serch: {{ age }}
+    </body>
+    <ul>
+        {{c_queryset}}
+        {% for seat in seat_list %}
+            <li><a href="">{{ seat.seatno }}</a></li>
+        {% empty %}
+            <li>座席の登録がありません</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
