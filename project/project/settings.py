@@ -161,6 +161,12 @@ else:
 # CSS使用のための設定(開発段階)
 STATIC_URL = '/static/'
 
+# 画像データの格納先の指定
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
 #祝日設定用
 PUBLIC_HOLIDAYS = [
     # 2022

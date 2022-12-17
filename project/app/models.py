@@ -8,6 +8,7 @@ class Base(models.Model):
     """拠点"""
     name = models.CharField('拠点名', max_length=20)
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    map = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.name

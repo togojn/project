@@ -1,8 +1,12 @@
 {% extends 'app/top.html' %}
 
 {% block content %}
-    <h1>{{ seatno }}</h1>
-    <p>{{ view.kwargs.year }}年{{ view.kwargs.month }}月{{ view.kwargs.day }}日 に予約</p>
+<center>
+    <h4>以下の内容で予約します。</h4>
+    <img src="/media/279+socio.jpg" width="10%" height="10%" border="0" />
+    <h4>日程：{{ view.kwargs.year }}年{{ view.kwargs.month }}月{{ view.kwargs.day }}日</h4>
+    <h4>座席：{{ seatno }}</h4>
+
     <form action="" method="POST">
         <!-- {{ form.as_p }} -->
         <!-- {{ form.date }} -->
@@ -13,4 +17,5 @@
         {% csrf_token %}
         <button type="submit">送信</button>
     </form>
+</center>
 {% endblock %}

@@ -2,9 +2,14 @@
 
 {% block content %}
 <div class="card">
-    <h2 class="card-header">{{ base.name }} 座席一覧</h2>
-    <p>{{ start_day|date:"Y/n/j" }} - {{ end_day|date:"Y/n/j" }}</p>
-    <table class="table table-bordered text-center" style="table-layout: fixed;width: 100%" border="1">
+    <h2 class="card-header">{{ base.name }} 座席</h2>
+    <h4>　{{ start_day|date:"Y/n/j" }} - {{ end_day|date:"Y/n/j" }}</h4>
+    {% if base.map %}
+    <center>
+    <p class="nav-item"><img src="{{ base.map.url }}" alt=""></p>
+    </center>
+    {% endif %}
+    <table class="table table-bordered text-center" style="table-layout: fixed;width: 100%" border="0">
         <tr>
             <td><a href="{% url 'app:calendar' base.pk before.year before.month before.day %}">前週</a></td>
             {% for day in days %}
@@ -24,7 +29,7 @@
         {% for seat, schedule in calendar.items %}
             <tr style="font-size:12px">
                 <td>
-                    {{ seat }}
+                    <b>{{ seat }}</b>
                     </td>
                         {% for dt, schedule in schedule.items %}
                             <td>
@@ -36,10 +41,14 @@
                             </td>
                         {% endfor %}
                     <td>
-                    {{ seat }}
+                    <b>{{ seat }}</b>
                 </td>
             </tr>
         {% endfor %}
     </table>
 </div>
+
+<!-- 拠点の座席表表示 -->
+
+
 {% endblock %}
