@@ -1,0 +1,47 @@
+{% extends 'app/top.html' %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-header">{{ base.name }} 座席</h2>
+    <h4>　{{ start_day|date:"Y/n/j" }}</h4>
+    <div class="panelbox2">
+        {% for seat, schedule in calendar.items %}
+            {% if forloop.counter > 0 and forloop.counter <= 10 %}
+                {% for dt, schedule in schedule.items %}
+                    {% if schedule == "none" %}
+                        <a href="{% url 'app:booking' base.pk seat.pk dt.year dt.month dt.day %}">{{ seat }}○</a>
+                    {% else %}
+                        <a href="{% url 'app:scheduledelete' sche.pop %}">{{ schedule }}</a>
+                    {% endif %} 
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="panelbox2">
+        {% for seat, schedule in calendar.items %}
+            {% if forloop.counter >= 11 and forloop.counter <= 20 %}
+                {% for dt, schedule in schedule.items %}
+                    {% if schedule == "none" %}
+                        <a href="{% url 'app:booking' base.pk seat.pk dt.year dt.month dt.day %}">{{ seat }}○</a>
+                    {% else %}
+                        <a href="{% url 'app:scheduledelete' sche.pop %}">{{ schedule }}</a>
+                    {% endif %} 
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="panelbox2">
+        {% for seat, schedule in calendar.items %}
+            {% if forloop.counter >= 21 and forloop.counter <= 30 %}
+                {% for dt, schedule in schedule.items %}
+                    {% if schedule == "none" %}
+                        <a href="{% url 'app:booking' base.pk seat.pk dt.year dt.month dt.day %}">{{ seat }}○</a>
+                    {% else %}
+                        <a href="{% url 'app:scheduledelete' sche.pop %}">{{ schedule }}</a>
+                    {% endif %} 
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

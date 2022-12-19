@@ -6,14 +6,8 @@
     <img src="/media/279+socio.jpg" width="10%" height="10%" border="0" />
     <h4>日程：{{ view.kwargs.year }}年{{ view.kwargs.month }}月{{ view.kwargs.day }}日</h4>
     <h4>座席：{{ seatno }}</h4>
-
     <form action="" method="POST">
-        <!-- {{ form.as_p }} -->
-        <!-- {{ form.date }} -->
-        <!-- {{ form.user }} -->
         {{ form.as_p }}
-        <!-- {{ form.base }} -->
-        <!-- {{ form.seat }} -->
         {% csrf_token %}
         <button type="submit">送信</button>
     </form>
