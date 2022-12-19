@@ -1,0 +1,117 @@
+.a {
+    text-decoration: none;
+}
+
+
+/*錦糸町 座席用設定*/
+/*++++ 外枠 ++++*/
+.panelbox1{
+    /* flex レイアウト設定 */
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: flex-end;
+    /* ボックス設定 */
+    width: 500px;
+    margin: 20px auto;
+    }
+    
+    /*++++ パネル ++++*/
+    .panelbox1 a{
+    /* flex レイアウト設定 */
+    flex: 0 0 auto;
+    /* ボックス設定 */
+    display: flex;
+    justify-content: flex-end;
+    display: block;
+    width: 100px;
+    height:75px; line-height: 50px;
+    margin: 3px auto;
+    box-sizing: border-box;
+    border: solid 2px rgb(126, 126, 126);
+    border-radius: 4px;
+    /* テキスト設定 */
+    text-align: center;
+    text-decoration: none;
+    }
+
+    .panelbox1_{
+        /* flex レイアウト設定 */
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+        justify-content: flex-end;
+        /* ボックス設定 */
+        width: 200px;
+        margin: 20px auto;
+        }
+    /*++++ パネル ++++*/
+    .panelbox1_ a{
+        /* flex レイアウト設定 */
+        flex: 0 0 auto;
+        /* ボックス設定 */
+        display: flex;
+        justify-content: start;
+        display: block;
+        width: 100px;
+        height:75px; line-height: 50px;
+        margin: 3px auto;
+        box-sizing: border-box;
+        border: solid 2px rgb(126, 126, 126);
+        border-radius: 4px;
+        /* テキスト設定 */
+        text-align: center;
+        text-decoration: none;
+        }
+
+
+
+
+
+
+
+
+
+/*飯田橋 座席用設定*/
+/*++++ 外枠 ++++*/
+.panelbox2{
+/* flex レイアウト設定 */
+display: flex;
+flex-flow: row wrap;
+align-items: stretch;
+justify-content: space-around;
+/* ボックス設定 */
+width: 500px;
+margin: 20px auto;
+}
+
+/*++++ パネル ++++*/
+.panelbox2 a{
+/* flex レイアウト設定 */
+flex: 0 0 auto;
+/* ボックス設定 */
+display: block;
+width: 100px;
+height:75px; line-height: 50px;
+margin: 3px auto;
+box-sizing: border-box;
+border: solid 2px rgb(126, 126, 126);
+border-radius: 4px;
+/* テキスト設定 */
+text-align: center;
+text-decoration: none;
+}
+
+.wrap{
+    display:flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: space-around;
+    /* ボックス設定 */
+    /* width: 750px; */
+    margin: 30px auto;
+
+  }
+
+
+
