@@ -23,4 +23,9 @@ urlpatterns = [
     #path('base/<int:pk>/scheduledelete/<int:no>/<int:year>/<int:month>/<int:day>/', views.ScheduleDelete.as_view(), name='scheduledelete'),
     #path('base/<int:pk>/booking/<int:no>/<int:year>/<int:month>/<int:day>/scheduledelete/<int:sche>/', views.ScheduleDelete.as_view(), name='scheduledelete'),
 
+    #錦糸町座席表 表示用URL
+    path('base/<int:pk>/calendar/<int:year>/<int:month>/<int:day>/Map1/', views.SeatMap1.as_view(), name='SeatMap1'),
+    #錦糸町座席表 表示用URL
+    path('base/<int:pk>/calendar/<int:year>/<int:month>/<int:day>/Map2/', views.SeatMap2.as_view(), name='SeatMap2'),
+
 ]

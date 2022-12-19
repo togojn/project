@@ -4,6 +4,7 @@
 <div class="card">
     <h2 class="card-header">{{ base.name }} 座席</h2>
     <h4>　{{ start_day|date:"Y/n/j" }} - {{ end_day|date:"Y/n/j" }}</h4>
+    <!-- 拠点の座席表表示 -->
     {% if base.map %}
     <center>
     <p class="nav-item"><img src="{{ base.map.url }}" alt=""></p>
@@ -14,13 +15,38 @@
             <td><a href="{% url 'app:calendar' base.pk before.year before.month before.day %}">前週</a></td>
             {% for day in days %}
                 {% if day in public_holidays %}
-                    <th style="background-color: lightyellow">{{ day | date:"d(D)" }}</th>
+                    <!-- 祝日の際の設定表示設定 -->
+                    <th style="background-color: lightyellow">
+                        {% if base.pk == 1 %}
+                            <a href="{% url 'app:SeatMap1' base.pk day.year day.month day.day %}">{{ day | date:"d(D)" }}</a>
+                        {% elif base.pk == 2 %}
+                            <a href="{% url 'app:SeatMap2' base.pk day.year day.month day.day %}">{{ day | date:"d(D)" }}</a>
+                        {% endif %}
+                    </th>
                 {% elif day.weekday == 5 %}
-                    <th style="color: blue; background-color: rgb(215, 247, 215)">{{ day | date:"d(D)" }}</th>
+                    <th style="background-color: rgb(199, 231, 250)">
+                        {% if base.pk == 1 %}
+                            <a href="{% url 'app:SeatMap1' base.pk day.year day.month day.day %}">{{ day | date:"d(D)" }}</a>
+                        {% elif base.pk == 2 %}
+                            <a href="{% url 'app:SeatMap2' base.pk day.year day.month day.day %}">{{ day | date:"d(D)" }}</a>
+                        {% endif %}
+                    </th>
                 {% elif day.weekday == 6 %}
-                    <th style="color: red; background-color: rgb(215, 247, 215)">{{ day | date:"d(D)" }}</th>
+                    <th style="background-color: rgb(252, 204, 204)">
+                        {% if base.pk == 1 %}
+                            <a href="{% url 'app:SeatMap1' base.pk day.year day.month day.day %}">{{ day | date:"d(D)" }}</a>
+                        {% elif base.pk == 2 %}
+                            <a href="{% url 'app:SeatMap2' base.pk day.year day.month day.day %}">{{ day | date:"d(D)" }}</a>
+                        {% endif %}
+                    </th>
                 {% else %}
-                    <th style="background-color: rgb(215, 247, 215)">{{ day | date:"d(D)" }}</th>
+                    <th style="background-color: rgb(215, 247, 215)">
+                        {% if base.pk == 1 %}
+                            <a href="{% url 'app:SeatMap1' base.pk day.year day.month day.day %}">{{ day | date:"d(D)" }}</a>
+                        {% elif base.pk == 2 %}
+                            <a href="{% url 'app:SeatMap2' base.pk day.year day.month day.day %}">{{ day | date:"d(D)" }}</a>
+                        {% endif %}
+                    </th>
                 {% endif %}
             {% endfor %}
             <td><a href="{% url 'app:calendar' base.pk next.year next.month next.day %}">次週</a></td>
@@ -47,8 +73,4 @@
         {% endfor %}
     </table>
 </div>
-
-<!-- 拠点の座席表表示 -->
-
-
 {% endblock %}
