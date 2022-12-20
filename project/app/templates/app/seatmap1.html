@@ -1,10 +1,73 @@
 {% extends 'app/top.html' %}
 
 {% block content %}
+<style type="text/css">
+/*錦糸町 座席用設定*/
+    /*++++ 外枠 ++++*/
+    .panelbox1{
+        /* flex レイアウト設定 */
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+        justify-content: flex-end;
+        /* ボックス設定 */
+        width: 500px;
+        margin: 20px auto;
+    }
+ 
+    /*++++ パネル ++++*/
+    .panelbox1 a{
+        /* flex レイアウト設定 */
+        flex: 0 0 auto;
+        /* ボックス設定 */
+        display: flex;
+        justify-content: flex-end;
+        display: block;
+        width: 100px;
+        height:75px; line-height: 50px;
+        margin: 3px auto;
+        box-sizing: border-box;
+        border: solid 2px rgb(126, 126, 126);
+        border-radius: 4px;
+        /* テキスト設定 */
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .panelbox1_{
+        /* flex レイアウト設定 */
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+        justify-content: start;
+        /* ボックス設定 */
+        width: 200px;
+        margin: 20px auto;
+    }
+    /*++++ パネル ++++*/
+    .panelbox1_ a{
+        /* flex レイアウト設定 */
+        flex: 0 0 auto;
+        /* ボックス設定 */
+        display: flex;
+        justify-content: start;
+        display: block;
+        width: 100px;
+        height:75px; line-height: 50px;
+        margin: 3px auto;
+        box-sizing: border-box;
+        border: solid 2px rgb(126, 126, 126);
+        border-radius: 4px;
+        /* テキスト設定 */
+        text-align: center;
+        text-decoration: none;
+    }
+</style>
+
 <div class="card">
     <h2 class="card-header">{{ base.name }} 座席</h2>
     <h4>　{{ start_day|date:"Y/n/j" }}</h4>
-    <div class="panelbox1 float-right">
+    <div class="panelbox1">
         {% for seat, schedule in calendar.items %}
             {% if forloop.counter > 0 and forloop.counter <= 10 %}
                 {% for dt, schedule in schedule.items %}
