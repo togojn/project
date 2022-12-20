@@ -1,6 +1,18 @@
 {% extends 'app/top.html' %}
 
 {% block content %}
+
+<style type="text/css">
+    .card{
+    animation: fadein 1s forwards;
+    }
+    
+    @keyframes fadein {
+        0% {opacity: 0}
+        100% {opacity: 1}
+    }    
+</style>
+
 <div class="card">
     <h2 class="card-header">{{ base.name }} 座席</h2>
     <h4>　{{ start_day|date:"Y/n/j" }} - {{ end_day|date:"Y/n/j" }}</h4>
@@ -53,7 +65,7 @@
         </tr>
 
         {% for seat, schedule in calendar.items %}
-            <tr style="font-size:12px">
+            <tr style="font-size:15px">
                 <td>
                     <b>{{ seat }}</b>
                     </td>

@@ -1,6 +1,18 @@
 {% extends 'app/top.html' %}
 
 {% block content %}
+
+<style type="text/css">
+    .card{
+    animation: fadein 1s forwards;
+    }
+    
+    @keyframes fadein {
+        0% {opacity: 0}
+        100% {opacity: 1}
+    }    
+</style>
+
 <center>
 <div class="card" style="width: 800px;">
     <h2 class="card-header">拠点一覧</h2>

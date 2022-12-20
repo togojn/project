@@ -1,6 +1,20 @@
 {% extends 'app/top.html' %}
 
 {% block content %}
+
+<style type="text/css">
+    .warp{
+    animation: fadein 1s forwards;
+    }
+    
+    @keyframes fadein {
+        0% {opacity: 0}
+        100% {opacity: 1}
+    }    
+</style>
+
+<div class="warp">
+
 <center>
     <h4>以下の内容で予約します。</h4>
     <img src="/media/279+socio.jpg" width="10%" height="10%" border="0" />
@@ -12,4 +26,6 @@
         <button type="submit">送信</button>
     </form>
 </center>
+
+</div>
 {% endblock %}
