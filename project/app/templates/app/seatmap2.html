@@ -12,7 +12,7 @@
         align-items: stretch;
         justify-content: space-around;
         /* ボックス設定 */
-        width: 500px;
+        width: 600px;
         margin: 20px auto; 
     }
 
@@ -22,9 +22,9 @@
         flex: 0 0 auto;
         /* ボックス設定 */
         display: block;
-        width: 100px;
-        height:75px; line-height: 50px;
-        margin: 3px auto;
+        width: 120px;
+        height:65px; line-height: 50px;
+        margin: 0px auto;
         box-sizing: border-box;
         border: solid 2px rgb(126, 126, 126);
             border-radius: 4px;
@@ -32,6 +32,16 @@
         text-align: center;
         text-decoration: none;
     }
+
+    .card {
+	animation: fadein 1s forwards;
+    }
+
+    @keyframes fadein {
+	    0% {opacity: 0}
+	    100% {opacity: 1}
+    }
+
 </style>
 
 <div class="card">
@@ -42,7 +52,7 @@
             {% if forloop.counter > 0 and forloop.counter <= 10 %}
                 {% for dt, schedule in schedule.items %}
                     {% if schedule == "none" %}
-                        <a href="{% url 'app:booking' base.pk seat.pk dt.year dt.month dt.day %}">{{ seat }}○</a>
+                        <a href="{% url 'app:booking' base.pk seat.pk dt.year dt.month dt.day %}">{{ seat }} ○</a>
                     {% else %}
                         <a href="{% url 'app:scheduledelete' sche.pop %}">{{ schedule }}</a>
                     {% endif %} 
@@ -55,7 +65,7 @@
             {% if forloop.counter >= 11 and forloop.counter <= 20 %}
                 {% for dt, schedule in schedule.items %}
                     {% if schedule == "none" %}
-                        <a href="{% url 'app:booking' base.pk seat.pk dt.year dt.month dt.day %}">{{ seat }}○</a>
+                        <a href="{% url 'app:booking' base.pk seat.pk dt.year dt.month dt.day %}">{{ seat }} ○</a>
                     {% else %}
                         <a href="{% url 'app:scheduledelete' sche.pop %}">{{ schedule }}</a>
                     {% endif %} 
@@ -68,7 +78,7 @@
             {% if forloop.counter >= 21 and forloop.counter <= 30 %}
                 {% for dt, schedule in schedule.items %}
                     {% if schedule == "none" %}
-                        <a href="{% url 'app:booking' base.pk seat.pk dt.year dt.month dt.day %}">{{ seat }}○</a>
+                        <a href="{% url 'app:booking' base.pk seat.pk dt.year dt.month dt.day %}">{{ seat }} ○</a>
                     {% else %}
                         <a href="{% url 'app:scheduledelete' sche.pop %}">{{ schedule }}</a>
                     {% endif %} 
@@ -76,5 +86,7 @@
             {% endif %}
         {% endfor %}
     </div>
+</div>
+
 </div>
 {% endblock %}

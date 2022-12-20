@@ -1,6 +1,19 @@
 {% extends 'app/top.html' %}
 
 {% block content %}
+<style type="text/css">
+    .warp{
+    animation: fadein 1s forwards;
+    }
+    
+    @keyframes fadein {
+        0% {opacity: 0}
+        100% {opacity: 1}
+    }    
+</style>
+
+<div class="warp">
+
 <center>
     <h1>{{ seatno }}</h1>
     <h5>予約を削除しますか</h5>
@@ -10,4 +23,7 @@
         <button type="submit">削除</button>
     </form>
 </center>
+
+</div>
+
 {% endblock %}
